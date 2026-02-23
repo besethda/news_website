@@ -1,5 +1,7 @@
 .main {
   display: grid;
   grid-template:  1fr /1fr 1.8fr 1fr;
-  padding: 20px 0; 
+  padding-top: 30px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid black;
 }
