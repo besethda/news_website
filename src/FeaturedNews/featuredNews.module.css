@@ -1,0 +1,24 @@
+.container {
+  border: 2px black solid;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  width: 100%;
+  aspect-ratio: 1;
+}
+
+.coverImage {
+  width: 100%;
+  height: 40%;
+  object-fit: fill;
+}
+
+.headline {
+  padding-top: 25px;
+  padding-bottom: 15px;
+  font-size: 1.9rem;
+}
+
+.text {
+  font-size: 1.1rem;
+}

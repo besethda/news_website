@@ -1,0 +1,26 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.breakingContainer {
+  display: flex;
+  width: 80%;
+  height: fit-content;
+  margin: 10px;
+  border: black solid 2px;
+}
+
+.articleContainer {
+  display: flex;
+  align-items: center;
+  padding: 0 3px;
+}
+
+.breaking {
+  background-color: black;
+  color: white;
+  padding: 6px 18px;
+  width: fit-content;
+}

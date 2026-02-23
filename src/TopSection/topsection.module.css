@@ -1,0 +1,5 @@
+.main {
+  display: grid;
+  grid-template:  1fr /1fr 1.8fr 1fr;
+  padding: 20px 0; 
+}
