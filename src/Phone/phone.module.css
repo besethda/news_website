@@ -1,0 +1,10 @@
+.container {
+  border: black 2px solid;
+  padding: 3px;
+  width: 15%;
+}
+
+.phone {
+  width: 100%;
+  text-align: center;
+}

@@ -1,3 +1,5 @@
+import styles from "./nav.module.css"
+
 const Nav = () => {
   return (
     <div className={styles.container} >
@@ -5,3 +7,5 @@ const Nav = () => {
     </div>
   )
 }
+
+export default Nav

@@ -1,3 +1,4 @@
+import styles from "./socials.module.css"
 
 const Socials = () => {
   return (
@@ -6,3 +7,5 @@ const Socials = () => {
     </div>
   )
 }
+
+export default Socials
