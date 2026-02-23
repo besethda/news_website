@@ -1,0 +1,12 @@
+.head {
+  display: flex;
+  justify-content: space-between;
+  padding: 3%;
+  width: 100%;
+}
+
+.title {
+  font-size: 1.7rem;
+  text-align: center;
+  width: fit-content;
+}
