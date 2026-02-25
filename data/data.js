@@ -70,3 +70,5 @@ export const getCategoryArticles = (filterOutCategory = false, articleCategory =
     return returnWholeArticle(getRandomArticle(articleReferences.filter(e => e.category !== articleCategory), articleQuantity))
   }
 }
+
+console.log(getCategoryArticles(true, "sport", 4))
