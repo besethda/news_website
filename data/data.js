@@ -63,7 +63,7 @@ const updateUsedArticles = (referenceObjectArray) => {
   })
 }
 
-export const getCategoryArticles = (filterOutCategory = false, articleCategory = "sport", articleQuantity = 2) => {
+const getCategoryArticles = (filterOutCategory = false, articleCategory = "sport", articleQuantity = 3) => {
   if(!filterOutCategory) {
     return returnWholeArticle(getRandomArticle(articleReferences.filter(e => e.category === articleCategory), articleQuantity))
   } else {
@@ -71,4 +71,7 @@ export const getCategoryArticles = (filterOutCategory = false, articleCategory =
   }
 }
 
-console.log(getCategoryArticles(true, "sport", 4))
+export const sportsArticles = getCategoryArticles(false, "sport", 2)
+export const featureArticle = getCategoryArticles(true, "sport", 1)
+export const breakingArticles = getCategoryArticles(true, "sport", 3)
+export const recentArticles = getCategoryArticles(true, "sport", 4)
