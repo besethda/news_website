@@ -1,4 +1,4 @@
-import styles from "./bottomsection.module.css"
+import styles from "./bottomSection.module.css"
 import CategoryNews from "../CategoryNews/index.jsx"
 
 const BottomSection = () => {

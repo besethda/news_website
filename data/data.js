@@ -35,7 +35,7 @@ export const articles = [
   new Article("Bright Lights", "Local Theater Group to Debut New Play", `The Smith Street Theater Group is excited to announce the upcoming debut of their new play, "A Day in the Life" The play, written by local playwright Bob Graham, tells the story of Smith St. "We are thrilled to be able to bring this new play to our community," said John McIntyre. "It's a powerful and moving story that we think will resonate with audiences of all ages." The play will be performed at the Melbourne Theater from Febuary 15th to April 2nd. Tickets are on sale now and can be purchased online or at the box office. For more information, please visit the theater group's website at www.smithstreettheater.au`, "theatre.jpeg", "entertainment")
 ]
 
-const articleReferences = articles.map((e, i)=> {
+let articleReferences = articles.map((e, i)=> {
   return {category: e.category, index: i}
 })
 
@@ -50,16 +50,10 @@ const getRandomArticle = (articleArray, articleQuantity = 4) => {
 }
 
 const returnWholeArticle = (referenceObjectArray) => {
-  let wholeArticles = referenceObjectArray.map(e => {
+  return referenceObjectArray.map(e => {
+    let indexArticle = articleReferences.findIndex(f=> f.index === e.index)
+    articleReferences.splice(indexArticle, 1)
     return articles[e.index]
-  })
-  updateUsedArticles(referenceObjectArray)
-  return wholeArticles
-}
-
-const updateUsedArticles = (referenceObjectArray) => {
-  referenceObjectArray.forEach(e=> {
-    articleReferences.splice(e.index, 1)
   })
 }
 
@@ -71,7 +65,15 @@ const getCategoryArticles = (filterOutCategory = false, articleCategory = "sport
   }
 }
 
+getCategorySections = () => {
+  let categoryArray = []
+  
+}
+
 export const sportsArticles = getCategoryArticles(false, "sport", 2)
 export const featureArticle = getCategoryArticles(true, "sport", 1)
-export const breakingArticles = getCategoryArticles(true, "sport", 3)
+export const breakingArticles = getCategoryArticles(true, "sport", 4)
 export const recentArticles = getCategoryArticles(true, "sport", 4)
+export const categoryArticlesArray = 
+
+console.log(articleReferences)

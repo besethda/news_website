@@ -4,8 +4,8 @@ const CategoryArticle = () => {
   return (
     <div className={styles.container}>
       <img className={styles.image}/>
-      <div className={styles.title}>China is Communist</div>
-      <div className={styles.text}>In the past two weeks China has always been communist.</div>
+      <div className={styles.title}>Category News</div>
+      <div className={styles.text}>In the past two weeks Trump has done nothing.</div>
     </div>
   )
 }

@@ -1,10 +1,10 @@
 import styles from "./recentArticle.module.css"
 
-const RecentArticle = () => {
+const RecentArticle = ({headline, deck}) => {
   return (
     <div className={styles.container}>
-      <div className={styles.title}>Stupid people strike again.</div>
-      <div className={styles.text}>Hello</div>
+      <div className={styles.title}>{headline}</div>
+      <div className={styles.text}>{deck}</div>
     </div>
   )
 }

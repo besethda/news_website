@@ -1,4 +1,4 @@
-import styles from "./topsection.module.css"
+import styles from "./topSection.module.css"
 import RecentNews from "../RecentNews"
 import FeaturedNews from "../FeaturedNews"
 import SportsNews from "../SportsNews"
