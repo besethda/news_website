@@ -68,28 +68,28 @@ const getCategoryArticles = (filterOutCategory = false, articleCategory = "sport
 const getCategorySections = () => {
   let articlesCopy = articles.map(e=> e)
   let categories = []
+  let usedCategories = []
   articlesCopy.forEach(article => {
-    let matchingArticles = articlesCopy.filter(e=> e.category === article.category)
-    let newArticles = []
-    if (matchingArticles.length > 3) {
-      let randomArticles = getRandomArticle(matchingArticles, 3)
-      randomArticles.forEach(i => {
-        newArticles.push(articlesCopy.find(f=> f.headline === i.headline))
-      })
-      console.log(randomArticles)
-      return randomArticles
-      } else {
-      return "error"
-      }
-      categories.push(newArticles)
+    if (usedCategories.includes(article.category)) {
+      return
+    } else {
+      let matchingArticles = articlesCopy.filter(e=> e.category === article.category)
+      usedCategories.push(article.category)
+      let newArticles = []
+      if (matchingArticles.length > 3) {
+        let randomArticles = getRandomArticle(matchingArticles, 3)
+        randomArticles.forEach(i => {
+          newArticles.push(articlesCopy.find(f=> f.headline === i.headline))
+        })
+        randomArticles
+        }
+        categories.push(newArticles)
+      }})
+      return(categories)
     }
-  )
-}
 
 export const sportsArticles = getCategoryArticles(false, "sport", 2)
 export const featureArticle = getCategoryArticles(true, "sport", 1)
 export const recentArticles = getCategoryArticles(true, "sport", 4)
 export const categoryArticles = getCategorySections()
 export const breakingArticles = getCategoryArticles(true, "sport", 4)
-
-console.log(getCategorySections())
