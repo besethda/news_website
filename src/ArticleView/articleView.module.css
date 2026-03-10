@@ -1,0 +1,27 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title {
+  text-align: center;
+  font-size: 2rem;
+  padding: 8px 12px;
+}
+
+.deck {
+  text-align: center;
+  font-size: 1.5rem;
+  padding: 12px;
+}
+
+.image {
+  max-height: 38vh;
+}
+
+.story {
+  width: 60%;
+  padding: 1%;
+  font-size: 1.4rem;
+}

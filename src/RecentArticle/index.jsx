@@ -1,14 +1,15 @@
 import styles from "./recentArticle.module.css"
 
-const RecentArticle = ({article, articleState}) => {
+const RecentArticle = ({article, setArticleState}) => {
 
-  let headline, deck, story, image, category
-  
+  const openArticleState = () => {
+    setArticleState(article)
+  }
 
   return (
-    <div className={styles.container}>
-      <div className={styles.title}>{headline}</div>
-      <div className={styles.text}>{deck}</div>
+    <div onClick={openArticleState} className={styles.container}>
+      <div className={styles.title}>{article.headline}</div>
+      <div className={styles.text}>{article.deck}</div>
     </div>
   )
 }

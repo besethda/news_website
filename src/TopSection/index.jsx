@@ -3,7 +3,7 @@ import RecentNews from "../RecentNews"
 import FeaturedNews from "../FeaturedNews"
 import SportsNews from "../SportsNews"
 
-const TopSection = ({articleState, setArticleState}) => {
+const TopSection = ({setArticleState}) => {
   return (
     <div className={styles.main}>
       <RecentNews setArticleState = {setArticleState}/>

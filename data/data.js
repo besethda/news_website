@@ -35,6 +35,13 @@ export const articles = [
   new Article("Bright Lights", "Local Theater Group to Debut New Play", `The Smith Street Theater Group is excited to announce the upcoming debut of their new play, "A Day in the Life" The play, written by local playwright Bob Graham, tells the story of Smith St. "We are thrilled to be able to bring this new play to our community," said John McIntyre. "It's a powerful and moving story that we think will resonate with audiences of all ages." The play will be performed at the Melbourne Theater from Febuary 15th to April 2nd. Tickets are on sale now and can be purchased online or at the box office. For more information, please visit the theater group's website at www.smithstreettheater.au`, "theatre.jpeg", "entertainment")
 ]
 
+export let originalArticles = articles.reduce((acc, e)=> {
+  if(!acc.includes(e.category)) acc.push(e.category)
+    return acc
+}, [])
+
+
+
 const getRandomArticle = targetArray => {
   const randomIndex = Math.floor(Math.random() * targetArray.length);
   const randomArticle = targetArray[randomIndex]

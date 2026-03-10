@@ -8,16 +8,17 @@ import ArticleView from "./ArticleView"
 function App() {
 
   const [articleState, setArticleState] = useState(null)
+  const [usedCategory, setUsedCategory] = useState(null)
 
   return (
     <>
+      <Header articleState={articleState} setArticleState={setArticleState}/>
     {!articleState ? 
       <div>
-        <Header />
         <TopSection setArticleState = {setArticleState}/>
         <BottomSection setArticleState = {setArticleState}/>
       </div> :
-        <ArticleView/>
+        <ArticleView articleState ={articleState} setArticleState={setArticleState}/>
     }
     </>
   )

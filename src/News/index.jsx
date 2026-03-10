@@ -1,12 +1,17 @@
 import styles from "./news.module.css"
 import { getImageURL } from "../../utils/functions"
 
-const News = ({ image, headline, deck }) => {
+const News = ({ article, setArticleState}) => {
+
+  const openArticle = () => {
+    setArticleState(article)
+  }
+
   return (
-    <div className={styles.container}>
-      <img className={styles.image} src={`${getImageURL(image)}`}></img>
-      <div className={styles.title}>{headline}</div>
-      <div className={styles.text}>{deck}</div>
+    <div onClick= {openArticle} className={styles.container}>
+      <img className={styles.image} src={`${getImageURL(article.image)}`}></img>
+      <div className={styles.title}>{article.headline}</div>
+      <div className={styles.text}>{article.deck}</div>
     </div>
   )
 }

@@ -1,8 +1,13 @@
 import styles from "./breakingArticle.module.css"
 
-const BreakingArticle = ({headline}) => {
+const BreakingArticle = ({article, setArticleState}) => {
+
+  const openArticle = () => {
+    setArticleState(article)
+  }
+
   return (
-    <div className={styles.article}>{headline}</div>
+    <div onClick={openArticle} className={styles.article}>{article.headline}</div>
   )
 }
 
