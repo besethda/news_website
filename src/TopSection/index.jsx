@@ -3,12 +3,12 @@ import RecentNews from "../RecentNews"
 import FeaturedNews from "../FeaturedNews"
 import SportsNews from "../SportsNews"
 
-const TopSection = ({setArticleState}) => {
+const TopSection = ({setArticleState, usedCategory}) => {
   return (
     <div className={styles.main}>
-      <RecentNews setArticleState = {setArticleState}/>
-      <FeaturedNews setArticleState = {setArticleState}/>
-      <SportsNews setArticleState = {setArticleState}/>
+      <RecentNews setArticleState = {setArticleState} usedCategory={usedCategory}/>
+      <FeaturedNews setArticleState = {setArticleState} usedCategory={usedCategory}/>
+      <SportsNews setArticleState = {setArticleState} usedCategory={usedCategory}/>
     </div>
   )
 }

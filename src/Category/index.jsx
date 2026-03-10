@@ -1,8 +1,13 @@
 import styles from "./category.module.css"
 
-const Category = ({name}) => {
+const Category = ({name, setUsedCategory, usedCategory}) => {
+
+  const seeCategory = () => {
+    setUsedCategory(name)
+  }
+
   return (
-    <div className={styles.category}>{name.toUpperCase()}</div>
+    <div onClick={seeCategory} className={`${styles.category} ${usedCategory == name && styles.active}`}>{name.toUpperCase()}</div>
   )
 }
 

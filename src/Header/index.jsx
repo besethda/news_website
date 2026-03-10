@@ -3,12 +3,12 @@ import Head from "../Head"
 import Nav from "../Nav"
 import Breaking from "../Breaking"
 
-const Header = ({articleState, setArticleState}) => {
+const Header = ({articleState, setArticleState, usedCategory, setUsedCategory}) => {
   
   return (
     <header className={styles.header}>
       <Head />
-      <Nav setArticleState={setArticleState} articleState={articleState}/>
+      <Nav setArticleState={setArticleState} articleState={articleState} usedCategory={usedCategory} setUsedCategory={setUsedCategory}/>
       {!articleState && <Breaking setArticleState={setArticleState}/>}
     </header>
   )

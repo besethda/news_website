@@ -12,10 +12,10 @@ function App() {
 
   return (
     <>
-      <Header articleState={articleState} setArticleState={setArticleState}/>
+    <Header articleState={articleState} setArticleState={setArticleState} usedCategory={usedCategory} setUsedCategory={setUsedCategory}/>
     {!articleState ? 
       <div>
-        <TopSection setArticleState = {setArticleState}/>
+        <TopSection setArticleState = {setArticleState} usedCategory={usedCategory}/>
         <BottomSection setArticleState = {setArticleState}/>
       </div> :
         <ArticleView articleState ={articleState} setArticleState={setArticleState}/>

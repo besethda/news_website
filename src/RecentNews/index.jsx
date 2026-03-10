@@ -2,7 +2,7 @@ import styles from "./recentNews.module.css"
 import RecentArticle from "../RecentArticle"
 import { recentArticles } from "../../data/data.js"
 
-const RecentNews = ({setArticleState}) => {
+const RecentNews = ({setArticleState, usedCategory}) => {
   return (
     <div className={styles.container}>
       <div className={styles.title}>Recent News</div>
