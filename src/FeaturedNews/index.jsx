@@ -1,11 +1,15 @@
 import styles from "./featuredNews.module.css"
+import { mainArticle } from "../../data/data.js"
+import { getImageURL } from "../../utils/functions.js"
 
-const FeaturedNews = () => {
+const FeaturedNews = ({articleState, setArticleState}) => {
+
+
   return (
-    <div className={styles.container}>
-      <img className={styles.coverImage}></img>
-      <div className={styles.headline}>Canada is the worst country ever to exist</div>
-      <div className={styles.text}></div>
+    <div onClick={setArticleState(mainArticle)} className={styles.container}>
+      <img className={styles.coverImage} src={`${getImageURL(mainArticle.image)}`}/>
+      <div className={styles.headline}>{mainArticle.headline}</div>
+      <div className={styles.text}>{mainArticle.deck}</div>
     </div>
   )
 }

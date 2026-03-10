@@ -1,12 +1,12 @@
 import styles from "./sportsNews.module.css"
 import News from "../News"
+import { featuredSportsArticles } from "../../data/data.js"
 
-const SportsNews = () => {
+const SportsNews = ({articleState, setArticleState}) => {
   return (
     <div className={styles.container}>
       <div className={styles.divider}></div>
-      <News/>
-      <News/>
+      {featuredSportsArticles.map((article, i)=> {return <News key={i} {...article} />})}
       <div className={styles.divider}></div>
     </div>
   )

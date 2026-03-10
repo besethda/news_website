@@ -6,7 +6,11 @@ function Article(headline, deck, story, image, category) {
   this.category = category;
 }
 
+<<<<<<< HEAD
 const articles = [
+=======
+export const articles = [
+>>>>>>> 966c7934785f2be762bfee8d663cc4c39c521cbe
   new Article("Football Match Ends in Draw", "The highly anticipated football match between ended in a draw last night", `The highly anticipated football match between Barcelona and Bayern Munich ended in a draw last night at Wembley. Despite both teams having chances to win, neither side could find the back of the net. The match was a close contest throughout, with both teams having their fair share of possession. Barcelona had the better chances in the first half, but Bayern Munich came out stronger in the second half. In the end, the match finished 0-0, leaving both teams disappointed. Barcelona manager Hansi Flick said after the match that he was 'disappointed with the result, but proud of the players' effort. Bayern Munich manager Kompany said that he was "happy with the point, but felt that his team could have won." The draw leaves Barcelona in forst in the league table, while Bayern Munich remain in third. Both teams will be looking to improve their form in their next matches.`, "soccer.jpeg", "sport"),
   new Article("Queen Silvia visits sick children", "Queen of Sweden Makes Historic Visit to Local Hospital", `In a historic event that captured the attention of the nation, Queen Sofia of Sweden paid a visit to a local hospital in Stockholm earlier today. The Queen, known for her charitable work and dedication to healthcare initiatives, took the time to meet with patients and hospital staff, spreading joy and goodwill wherever she went. Dressed in an elegant ensemble, Queen Sofia was greeted by a crowd of well-wishers upon her arrival at the hospital. She was accompanied by officials from the hospital administration, as well as members of her royal entourage. The Queen's visit to the hospital was part of her ongoing efforts to support healthcare facilities and show appreciation for the hard work of healthcare professionals. During her visit, Queen Sofia toured various departments of the hospital, stopping to speak with patients and hear their stories. She also took the time to speak with doctors, nurses, and other staff members, thanking them for their tireless dedication to providing quality care to those in need. In a brief statement to the press, Queen Sofia expressed her admiration for the hospital staff and underscored the importance of healthcare services in the community. She emphasized the need for continued support for healthcare facilities and encouraged the public to show their appreciation for the vital work being done by healthcare professionals every day. As the Queen concluded her visit and bid farewell to the hospital staff and patients, she left behind a sense of warmth and gratitude that will long be remembered. Her visit served as a reminder of the importance of compassion and care in our society, and highlighted the positive impact that a single act of kindness can have on those in need`, "queen.jpeg", "sweden"),
   new Article("Gang wars", "Shootout in Town Leaves Two Dead, Three Injured", `Local police are investigating a shootout that occurred in the town of Smithville this afternoon. The shooting, which took place at a local convenience store, left two people dead and three injured. According to witnesses, the shooting began when two men entered the store and opened fire on a group of people. The victims were all employees of the store. Police arrived on the scene minutes later and exchanged gunfire with the suspects. The suspects were eventually apprehended and taken into custody. The two victims who were killed have been identified as John Smith, 25, and Jane Doe, 23. The three injured victims are being treated at a local hospital. Their injuries are not believed to be life-threatening. Police are still investigating the motive for the shooting. They are asking anyone with information about the incident to come forward. This is a developing story. More information will be released as it becomes available.`, "shootout.jpeg", "crime"),
@@ -35,37 +39,45 @@ const articles = [
   new Article("Bright Lights", "Local Theater Group to Debut New Play", `The Smith Street Theater Group is excited to announce the upcoming debut of their new play, "A Day in the Life" The play, written by local playwright Bob Graham, tells the story of Smith St. "We are thrilled to be able to bring this new play to our community," said John McIntyre. "It's a powerful and moving story that we think will resonate with audiences of all ages." The play will be performed at the Melbourne Theater from Febuary 15th to April 2nd. Tickets are on sale now and can be purchased online or at the box office. For more information, please visit the theater group's website at www.smithstreettheater.au`, "theatre.jpeg", "entertainment")
 ]
 
-let categories = articles.map((e, i)=> {
-  return {category : e.category, index: i }
-})
-
-const getRandomArticles = (articleArray, articleQuantity) => {
-  let randArticles = []
-  for(let i = 0; i < articleQuantity; i++) {
-    let rand = Math.floor(Math.random()*articleArray.length)
-    randArticles.push(articleArray[rand])
-    articleArray.splice(rand, 1)
-  }
-  return randArticles
+const getRandomArticle = targetArray => {
+  const randomIndex = Math.floor(Math.random() * targetArray.length);
+  const randomArticle = targetArray[randomIndex]
+  targetArray.splice(randomIndex, 1)
+  return randomArticle
 }
 
-const getArticle = (index) => {
-  return articles[index]
-}
+export const mainArticle = getRandomArticle(articles)
 
-const sendArticles = (maxNumber) => {
-  let articles = categories.filter(e => e.category !== "sport")
-  return getRandomArticles(articles, maxNumber)
-}
+const sportsArticles = articles.filter(item => item.category === "sport")
+const swedenArticles = articles.filter(item => item.category === "sweden")
+const worldArticles = articles.filter(item => item.category === "world")
+const crimeArticles = articles.filter(item => item.category === "crime")
+const entertainmentArticles = articles.filter(item => item.category === "entertainment")
 
-const sendSportsArticle = (maxNumber) => {
-  let sportsArticles = categories.filter(e => e.category === "sport")
-  return getRandomArticles(sportsArticles, maxNumber)
-}
+export const featuredSportsArticles = [getRandomArticle(sportsArticles), getRandomArticle(sportsArticles)]
+export const recentArticles = [getRandomArticle(swedenArticles), getRandomArticle(worldArticles), getRandomArticle(crimeArticles), getRandomArticle(entertainmentArticles)]
 
-const sendCategoryArticle = (articleCategory, maxNumber) => {
-  let categoryArticles = categories.filter(e => e.category === articleCategory)
-  return getRandomArticles(categoryArticles, maxNumber)
-}
+export const categories = [
+  {
+      name: "Sweden",
+      articles: [getRandomArticle(swedenArticles), getRandomArticle(swedenArticles), getRandomArticle(swedenArticles)]
+  },
+  {
+      name: "World",
+      articles: [getRandomArticle(worldArticles), getRandomArticle(worldArticles), getRandomArticle(worldArticles)]
+  },
+  {
+      name: "Crime",
+      articles: [getRandomArticle(crimeArticles), getRandomArticle(crimeArticles), getRandomArticle(crimeArticles)]
+  },
+  {
+      name: "Sport",
+      articles: [getRandomArticle(sportsArticles), getRandomArticle(sportsArticles), getRandomArticle(sportsArticles)]
+  },
+  {
+      name: "Entertainment",
+      articles: [getRandomArticle(entertainmentArticles), getRandomArticle(entertainmentArticles), getRandomArticle(entertainmentArticles)]
+  },
+]
 
-console.log(sendCategoryArticle("sweden", 2))
+export const breakingArticles = [...swedenArticles, ...worldArticles, ...entertainmentArticles, ...sportsArticles, ...crimeArticles]

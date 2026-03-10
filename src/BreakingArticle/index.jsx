@@ -1,8 +1,8 @@
 import styles from "./breakingArticle.module.css"
 
-const BreakingArticle = () => {
+const BreakingArticle = ({headline}) => {
   return (
-    <div className={styles.article}>Fifa World Cup 2023</div>
+    <div className={styles.article}>{headline}</div>
   )
 }
 
