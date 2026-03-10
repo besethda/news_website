@@ -1,6 +1,7 @@
 import styles from "./recentNews.module.css"
 import RecentArticle from "../RecentArticle"
 import { recentArticles } from "../../data/data.js"
+import { getArticlesByCategory } from "../../data/data.js"
 
 const RecentNews = ({setArticleState, usedCategory}) => {
   return (

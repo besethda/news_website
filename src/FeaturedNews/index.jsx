@@ -2,7 +2,7 @@ import styles from "./featuredNews.module.css"
 import { mainArticle } from "../../data/data.js"
 import { getImageURL } from "../../utils/functions.js"
 
-const FeaturedNews = ({setArticleState}) => {
+const FeaturedNews = ({setArticleState, usedCategory}) => {
 
   const setState = ()=> {
     setArticleState(mainArticle)
