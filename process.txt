@@ -1,0 +1,20 @@
+App.jsx:
+  article state defaults to null-/ full article object
+
+  if (articleState) Show fullArticleComponent = state => 
+
+  if (CategoryState) show the selectedCategory
+
+
+CATEGRORIES
+
+Data:
+ clone the articles array
+ call it allarticles
+
+ State default to NUll
+ For each menu item:
+  Pass down the update State function
+  setState to
+
+Selected Category component

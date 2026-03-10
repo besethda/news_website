@@ -35,61 +35,45 @@ export const articles = [
   new Article("Bright Lights", "Local Theater Group to Debut New Play", `The Smith Street Theater Group is excited to announce the upcoming debut of their new play, "A Day in the Life" The play, written by local playwright Bob Graham, tells the story of Smith St. "We are thrilled to be able to bring this new play to our community," said John McIntyre. "It's a powerful and moving story that we think will resonate with audiences of all ages." The play will be performed at the Melbourne Theater from Febuary 15th to April 2nd. Tickets are on sale now and can be purchased online or at the box office. For more information, please visit the theater group's website at www.smithstreettheater.au`, "theatre.jpeg", "entertainment")
 ]
 
-let articleReferences = articles.map((e, i)=> {
-  return {category: e.category, index: i}
-})
-
-const getRandomArticle = (articleArray, articleQuantity = 4) => {
-  let randomArray = []
-  for (let i = 0; i < articleQuantity; i++) {
-    let randomNumber = Math.floor(Math.random() * articleArray.length)
-    randomArray.push(articleArray[randomNumber])
-    articleArray.splice(randomNumber, 1)
-  }
-  return randomArray
+const getRandomArticle = targetArray => {
+  const randomIndex = Math.floor(Math.random() * targetArray.length);
+  const randomArticle = targetArray[randomIndex]
+  targetArray.splice(randomIndex, 1)
+  return randomArticle
 }
 
-const returnWholeArticle = (referenceObjectArray) => {
-  return referenceObjectArray.map(e => {
-    let indexArticle = articleReferences.findIndex(f=> f.index === e.index)
-    articleReferences.splice(indexArticle, 1)
-    return articles[e.index]
-  })
-}
+export const mainArticle = getRandomArticle(articles)
 
-const getCategoryArticles = (filterOutCategory = false, articleCategory = "sport", articleQuantity = 3) => {
-  if(!filterOutCategory) {
-    return returnWholeArticle(getRandomArticle(articleReferences.filter(e => e.category === articleCategory), articleQuantity))
-  } else {
-    return returnWholeArticle(getRandomArticle(articleReferences.filter(e => e.category !== articleCategory), articleQuantity))
-  }
-}
+const sportsArticles = articles.filter(item => item.category === "sport")
+const swedenArticles = articles.filter(item => item.category === "sweden")
+const worldArticles = articles.filter(item => item.category === "world")
+const crimeArticles = articles.filter(item => item.category === "crime")
+const entertainmentArticles = articles.filter(item => item.category === "entertainment")
 
-const getCategorySections = () => {
-  let articlesCopy = articles.map(e=> e)
-  let categories = []
-  let usedCategories = []
-  articlesCopy.forEach(article => {
-    if (usedCategories.includes(article.category)) {
-      return
-    } else {
-      let matchingArticles = articlesCopy.filter(e=> e.category === article.category)
-      usedCategories.push(article.category)
-      let newArticles = []
-      if (matchingArticles.length > 3) {
-        let randomArticles = getRandomArticle(matchingArticles, 3)
-        randomArticles.forEach(i => {
-          newArticles.push(articlesCopy.find(f=> f.headline === i.headline))
-        })
-        randomArticles
-        }
-        categories.push(newArticles)
-      }})
-      return(categories)
-    }
+export const featuredSportsArticles = [getRandomArticle(sportsArticles), getRandomArticle(sportsArticles)]
+export const recentArticles = [getRandomArticle(swedenArticles), getRandomArticle(worldArticles), getRandomArticle(crimeArticles), getRandomArticle(entertainmentArticles)]
 
-export const sportsArticles = getCategoryArticles(false, "sport", 2)
-export const featureArticle = getCategoryArticles(true, "sport", 1)
-export const recentArticles = getCategoryArticles(true, "sport", 4)
-export const categoryArticles = getCategorySections()
-export const breakingArticles = getCategoryArticles(true, "sport", 4)
+export const categories = [
+  {
+      name: "Sweden",
+      articles: [getRandomArticle(swedenArticles), getRandomArticle(swedenArticles), getRandomArticle(swedenArticles)]
+  },
+  {
+      name: "World",
+      articles: [getRandomArticle(worldArticles), getRandomArticle(worldArticles), getRandomArticle(worldArticles)]
+  },
+  {
+      name: "Crime",
+      articles: [getRandomArticle(crimeArticles), getRandomArticle(crimeArticles), getRandomArticle(crimeArticles)]
+  },
+  {
+      name: "Sport",
+      articles: [getRandomArticle(sportsArticles), getRandomArticle(sportsArticles), getRandomArticle(sportsArticles)]
+  },
+  {
+      name: "Entertainment",
+      articles: [getRandomArticle(entertainmentArticles), getRandomArticle(entertainmentArticles), getRandomArticle(entertainmentArticles)]
+  },
+]
+
+export const breakingArticles = [...swedenArticles, ...worldArticles, ...entertainmentArticles, ...sportsArticles, ...crimeArticles]
