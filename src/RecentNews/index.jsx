@@ -1,13 +1,13 @@
 import styles from "./recentNews.module.css"
 import RecentArticle from "../RecentArticle"
-import { recentArticles } from "../../data/data.js"
-import { getArticlesByCategory } from "../../data/data.js"
+import { recentArticles, recentAreaArticles } from "../../data/data.js"
 
 const RecentNews = ({setArticleState, usedCategory}) => {
   return (
     <div className={styles.container}>
       <div className={styles.title}>Recent News</div>
-      {recentArticles.map((article, i)=> <RecentArticle setArticleState={setArticleState} key={i} article = {article}/>)}
+      {!usedCategory ? recentArticles.map((article, i)=> <RecentArticle setArticleState={setArticleState} key={i} article = {article}/>) 
+      : recentAreaArticles.map((article, i)=> <RecentArticle setArticleState={setArticleState} key={i} article = {article}/>)}
     </div>
   )
 }

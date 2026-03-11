@@ -42,10 +42,6 @@ export let allCategories = articles.reduce((acc, e)=> {
 
 let allArticles = Array.from(articles)
 
-const getArticlesByCategory = (chosenCategory) => {
-  return allArticles.filter(e => e.category === chosenCategory)
-}
-
 const getRandomArticle = targetArray => {
   const randomIndex = Math.floor(Math.random() * targetArray.length);
   const randomArticle = targetArray[randomIndex]
@@ -53,7 +49,22 @@ const getRandomArticle = targetArray => {
   return randomArticle
 }
 
-export const mainAreaArticle = []
+let currentCategory = ""
+let currentCategoryArticles
+export let sportAreaArticles = []
+export let recentAreaArticles = []
+export let mainAreaArticle = []
+
+export const changeCurrentCategory = (chosenCategory) => {
+  currentCategory = chosenCategory
+  currentCategoryArticles = allArticles.filter(e => e.category === currentCategory)
+  sportAreaArticles = [getRandomArticle(currentCategoryArticles), getRandomArticle(currentCategoryArticles)]
+  mainAreaArticle = getRandomArticle(currentCategoryArticles)
+  chosenCategory === "sport" ?
+  recentAreaArticles = [getRandomArticle(currentCategoryArticles), getRandomArticle(currentCategoryArticles), getRandomArticle(currentCategoryArticles)]
+  : recentAreaArticles = [getRandomArticle(currentCategoryArticles), getRandomArticle(currentCategoryArticles)]
+}
+
 export const mainArticle = getRandomArticle(articles)
 
 const sportsArticles = articles.filter(item => item.category === "sport")
@@ -61,9 +72,6 @@ const swedenArticles = articles.filter(item => item.category === "sweden")
 const worldArticles = articles.filter(item => item.category === "world")
 const crimeArticles = articles.filter(item => item.category === "crime")
 const entertainmentArticles = articles.filter(item => item.category === "entertainment")
-
-export const sportAreaArticles = [getRandomArticle()]
-export const recentAreaArticles = []
 
 export const featuredSportsArticles = [getRandomArticle(sportsArticles), getRandomArticle(sportsArticles)]
 export const recentArticles = [getRandomArticle(swedenArticles), getRandomArticle(worldArticles), getRandomArticle(crimeArticles), getRandomArticle(entertainmentArticles)]

@@ -1,9 +1,12 @@
 import styles from "./category.module.css"
+import { changeCurrentCategory } from "../../data/data"
 
-const Category = ({name, setUsedCategory, usedCategory}) => {
+const Category = ({name, backToMain, setUsedCategory, usedCategory}) => {
 
   const seeCategory = () => {
+    backToMain()
     setUsedCategory(name)
+    changeCurrentCategory(name)
   }
 
   return (
